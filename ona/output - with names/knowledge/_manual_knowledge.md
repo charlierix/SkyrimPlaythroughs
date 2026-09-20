@@ -20,7 +20,11 @@ Two routes — the AI agent is easiest, since the exact name/id matters:
 
 Groups are defined in the web UI and referenced from knowledge conditions (verified in the README). Then put the player-fold in the group, and add each follower fold **as recruited** — membership is what scopes the entries below: the fold-facts reach folds only, the cover story reaches everyone else.
 
-## step 2 — create the four knowledge entries
+## step 2 — add player to npc group
+
+ask the ai agent to put the player into the group
+
+## step 3 — create the four knowledge entries
 
 One file = one entry, ready to hand over or paste. Each file maps 1:1 onto the World Knowledge entry form — the file's `## fields` fills the form, its `## content` is the text. Hand the file to the knowledge-builder agent, or paste it in the page editor yourself. Create all four at first setup.
 

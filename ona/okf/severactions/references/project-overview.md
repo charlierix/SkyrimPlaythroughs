@@ -1,0 +1,93 @@
+---
+type: Reference
+title: "SeverActions — Project Overview"
+description: Purpose, feature matrix, requirements, installation, configuration and architecture of the SeverActions SkyrimNet action pack.
+resource: "sources/SeverActions/README.md"
+tags: [overview, skyrimnet, skyrim, skse, actions, prompts]
+timestamp: 2026-09-18T00:00:00Z
+---
+
+# Overview
+
+**SeverActions** (v3.9.13, by **Severause**) is an action, prompt and behaviour pack for **SkyrimNet**: NPCs act on what they say. They follow and travel across Skyrim, craft, cook and brew, manage outfits, handle gold and debt, sit down, fight, get arrested and escorted to jail, settle disputes with fists, run businesses for the player, and remember what happened. One principle runs through all of it: the AI decides what to do, and the mod makes it happen in-game — with the engine's own systems, not around them.
+
+Each module is a separate FOMOD option; install only what you want.
+
+# Actions by Module
+
+| Module | Actions | What it does |
+|---|---:|---|
+| Basic | 18 | Follow, pick up, give/take/bring items, loot containers and corpses, read books aloud, cast and teach spells and shouts, transfer ownership |
+| Enterprises | 26 | Hire NPCs to run mines, shops, farms, fences and guard posts; weekly settlements, wages, arrears, loans, hold stewards, taxes, hired-thug reprisals, outlaw-camp takeovers |
+| Arrest | 14 | Guards track bounties, dispatch across cells, escort prisoners who can plead mid-escort, investigate homes, pass judgment |
+| Economy | 10 | Gifts, payments, extortion, atomic item-for-gold trades, tabs, credit limits, due dates, recurring debt |
+| Follower | 9 | Companion framework with rapport, trust, loyalty and mood; homes, work and play locations, combat styles, follow distance |
+| Outfit | 8 | Equip/unequip by name, save and recall presets, situation outfits that switch automatically, persistent outfit locking |
+| Kidnap & Captives | 7 | Abduct or restrain a named NPC, with ransom, interrogation, escape and consequences (kidnap opt-in; restrain ships on) |
+| Crafting | 5 | Walk to a workstation, craft/cook/brew, deliver the result; commissions matured over in-game days |
+| Combat | 5 | Attack, cease fire, yield, and the outlaw-standoff verbs |
+| Brawl | 4 | Non-lethal fist fights — challenge, accept, decline, forfeit |
+| Travel | 3 | Navigate to named locations with a non-pausing confirmation popup, adjustable pace, off-screen simulation |
+| Furniture | 2 | Chairs, benches, beds and crafting stations, with automatic cleanup |
+| Adult (optional) | 2 | OSL Aroused / SexLab Aroused arousal adjustment |
+| Sever's Hearth (bundled) | 3 | Establish and break camp, and travel back to it |
+
+Count note: the shipped file inventory holds 125 action YAMLs under `Actions/` (including `cat_*` category files) plus 4 Hearth camp actions and 1 SkyrimNet trigger; the README's per-module figures predate later additions. See [/actions/index.md](/actions/index.md).
+
+# Context Prompts
+
+Prompts inject live game state into the AI's context, so NPCs *know* things rather than inventing them — 74 templates across 16 installable modules, the largest being Enterprises (23), Core (15) and Follower (14). They cover: known spells · carried gold · inventory and worn gear · nearby objects and containers · the player's inventory · combat and brawl state · survival needs · familiarity and reputation · bounty and jail status · merchant stock · debts · retainer and enterprise status · commissions · quest memory · off-screen life · camp and truce state · relationships between companions. The shipped tree holds 77 `.prompt` files (74 module prompts + 2 core-level + 1 placed in the Outfit action tree). See [/prompts/index.md](/prompts/index.md).
+
+# Behaviour Systems
+
+- **Companions with continuity** — relationships drift, companions form opinions about *each other*, and dismissed followers live a life while you're away that they'll tell you about.
+- **Outlaw truces** — bandits and other outlaws hold their fire until provoked, so conversation is possible at all; camps can be talked into working for you, by their chief or by consensus.
+- **Off-screen travel** — NPCs sent somewhere actually get there, simulated across unloaded cells.
+- **A working crime system** — bounties, guards, jails, escorts, evidence and judgment.
+- **Survival needs** for followers, with hunger, cold and fatigue.
+
+# Requirements
+
+| Tier | Items |
+|---|---|
+| Required | Skyrim SE/AE, SKSE64, SkyrimNet, Address Library, PapyrusUtil |
+| Recommended | PrismaUI (in-game configuration UI), SkyUI (MCM) |
+| Optional | Nether's Follower Framework · Devious Devices · OSL/SexLab Aroused · Fertility Mode · Dynamic Book Framework · UIExtensions |
+
+SeverActions **coexists** with Nether's Follower Framework rather than competing with it: when NFF owns a follower, recruit/dismiss/wait/resume are routed *through* NFF's own controller, and SeverActions never touches that follower's AI packages.
+
+# Installation
+
+Install the archive with a mod manager and pick your modules in the FOMOD installer ([/configs/fomod-installer.md](/configs/fomod-installer.md)). Load order is not sensitive; place after SkyrimNet. Prompt modules are separate from action modules — a module's actions and prompts are usually worth installing together, but nothing breaks if you don't.
+
+# Configuration
+
+Two surfaces, covering the same settings:
+
+- **PrismaUI** — the main in-game interface: dashboard, companions, inventory, world map and travel, outfits, survival, enterprises, and settings ([/systems/prismaui-interface.md](/systems/prismaui-interface.md)).
+- **MCM** (SkyUI) — the same settings for VR and non-PrismaUI setups: Interface, Hotkeys, Prompt Filters, Followers, Off-Screen Life, Outfits, Survival, Combat & Outlaws, Crime & Bounty, Economy, Enterprises, Travel, and Reading & Spells.
+
+Global preferences are stored **outside the save**, so a new character or a mod update keeps your settings.
+
+# Architecture
+
+Four layers, each doing what it is best at:
+
+1. **Action YAMLs** declare what the AI may do and when it is eligible ([/actions/index.md](/actions/index.md)).
+2. **Prompt templates** inject live state into the AI's context ([/prompts/index.md](/prompts/index.md)).
+3. **Papyrus** owns quest aliases, packages and anything the engine only exposes to scripts ([/scripts/index.md](/scripts/index.md)).
+4. **A native SKSE plugin** (~135k lines of C++) owns the data, the heavy scans, and everything performance- or thread-sensitive ([/systems/native-plugin.md](/systems/native-plugin.md)).
+
+State lives in the **SKSE co-save** (~40 records) rather than in Papyrus properties, behind a shared store base that gives every store the same save/load/revert contract and an opt-in migration path for schema changes — so updates land on existing saves without wiping anything.
+
+# Credits
+
+- **Author** — Severause; builds on [SkyrimNet](https://github.com/MinLL/SkyrimNet-GamePlugin) by MinLL.
+- Map artwork by Caro Tuts (Nexus #62705); hold sigils derived from CoMAP map markers by Parapets (Nexus #56123) and the Cities of the North pack, re-tinted to a parchment palette.
+- Imperial Fiscal Levy armour meshes/textures by NordwarUA (New Legion, Nexus #30468), recoloured to a Treasury livery — see [/assets/levy-armour-sets.md](/assets/levy-armour-sets.md).
+- The General's writ-blade by InsanitySorrow (Insanity's Ebony Sword Replacer, Nexus #37645); the Legates' blades by billyro (Mage Glass Sword, Nexus #38798) — see [/assets/levy-weapons.md](/assets/levy-weapons.md).
+
+# Citations
+
+[1] `sources/SeverActions/README.md`
+[2] `sources/SeverActions/fomod/info.xml`

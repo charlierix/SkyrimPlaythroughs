@@ -18,7 +18,7 @@ since there are file links, the folders under sources need to be named:
 - SkyrimNet-GamePlugin
 - SeverActions
 
-if you have git installed, type cmd in the windows explorer address to pull up a command window into this sources foler (or cd\ "folder path")
+if you have git installed, type cmd in the windows explorer address to pull up a command window into this sources folder (or cd\ "folder path")
 
 ```bash
 git clone https://github.com/MinLL/SkyrimNet-GamePlugin.git

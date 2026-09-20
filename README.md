@@ -1,5 +1,5 @@
 # SkyrimPlaythroughs
-SkyrimNet manages llm calls for npcs.  This has prompt replacements for custom playthroughs
+SkyrimNet manages llm calls for npcs.  This repo has prompt replacements for custom playthroughs
 
 I use agent zero as my agent framework, which has a concept of projects.  Subfolders under this repo are meant to be the contents of a project
 

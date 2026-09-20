@@ -26,7 +26,7 @@ ask the ai agent to put the player into the group
 
 ## step 3 — create the four knowledge entries
 
-One file = one entry, ready to hand over or paste. Each file maps 1:1 onto the World Knowledge entry form — the file's `## fields` fills the form, its `## content` is the text. Hand the file to the knowledge-builder agent, or paste it in the page editor yourself. Create all four at first setup.
+One file = one entry, ready to hand over or paste. Each file maps 1:1 onto the **World Knowledge** entry form — the file's `## fields` fills the form, its `## content` is the text. Hand the file to the knowledge-builder agent, or paste it in the page editor yourself. Create all four at first setup.
 
 | file | display name | holds | condition |
 | --- | --- | --- | --- |

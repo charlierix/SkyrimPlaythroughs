@@ -2,9 +2,9 @@
 
 # mind — the shared fold-mind text
 
-The mind-level blocks, identical in all five folds. At recruit time merge into the body's profile: replace `summary` and `personality` with these, set `speech_style` and `interject_summary` to these, use the `aspirations` core and append the body's experiment line ([body-template](./body-template.md)). Replace `{name}` with the body's name before pasting.
+The mind-level blocks, identical in all five folds. At recruit time they replace the body's `summary`, `personality`, `speech_style` and `interject_summary`, and seed the `aspirations` core — the per-block actions live in the fill table in the [profiles manual](./_manual_profiles.md). Swap `{name}` for the body's name before pasting; `background` and the body-side blocks are not yours — [body-template](./body-template.md) holds those.
 
-Helper-agent form: "Update the profile of {npc}. Replace `summary` and `personality` with the `summary` and `personality` blocks below. Set `speech_style` to: {registers}. Set `aspirations` to: {core + experiment}. Set `interject_summary` to: {text}. In `background`, keep the body's history as one plain line. Leave `appearance`, `occupation`, `relationships` unchanged."
+If an AI pass is unavoidable, use the whole-bio fallback in the [profiles manual](./_manual_profiles.md) — per-section prose prompts invite paraphrase drift in the blocks that must stay.
 
 ## summary
 

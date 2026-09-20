@@ -61,8 +61,8 @@ Five bodies, each bonded to the other four: 20 directed links, rendered by `subm
 
 2 + 4 + 6 + 8 = 20. Each wave doubles as the per-recruitment checklist: at recruitment *k*, create wave *k*'s links before leaving town.
 
-## creation ⚠ verify live
+## creation — dashboard only (chat assistant verifies)
 
-1. dashboard → VirtualEntities config (localhost:8080) — find link/bond creation
-2. or ask the chat assistant which identity tools it carries (MCP, port 8889, is a possibility)
-3. if neither exists: override `submodules/character_bio/7050_identity_links.prompt` with the bonds hard-coded (see [prompts](../prompts/_manual_prompts.md))
+1. dashboard → Settings → NPCs → Identity Links (localhost:8080) — the only creation surface; the chat assistant has no creation tool and no MCP branch ([setup manual](./_manual_identity-links-setup.md) holds the smoke test)
+2. after each wave, ask the chat assistant to read the new bonds back via `get_linked_identities` — confirm the "One Soul, Two Bodies" framing renders
+3. if the UI can't express a bond or the framing misrenders: override `submodules/character_bio/7050_identity_links.prompt` with the bonds hard-coded (see [prompts](../prompts/_manual_prompts.md))

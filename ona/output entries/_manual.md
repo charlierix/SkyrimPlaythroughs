@@ -44,11 +44,11 @@ Unverified surfaces are marked ⚠ — confirm live at first setup.
 
 | folder | artifact | skyrimnet surface | agent | when |
 | --- | --- | --- | --- | --- |
-| [profiles/](./profiles/_manual_profiles.md) | fold profiles for the five bodies | Profiles page | chat assistant / page editor | per recruitment |
+| [profiles/](./profiles/_manual_profiles.md) | fold profiles for the five bodies | Profiles page — paste/edit in the page editor; chat assistant is read-only | manual / page editor | per recruitment |
 | [memories/](./memories/_manual_memories-setup.md) ([recruit](./memories/_manual_memories-recruit.md)) | 3 shared memories + 1 recruitment memory per fold | Memories page (full CRUD, verified) | chat assistant / page editor | shared → player-fold at first setup, pools per recruitment |
-| [knowledge/](./knowledge/_manual_knowledge.md) | NPC group + cover story + fold-shared facts | World Knowledge page | knowledge builder | first setup |
+| [knowledge/](./knowledge/_manual_knowledge.md) | NPC group + cover story + fold-shared facts + the Ohne silence rules | World Knowledge page | knowledge builder | first setup |
 | [prompts/](./prompts/_manual_prompts.md) | diary override, group-talk sentence, memory bias, SeverActions relationship overrides | prompt editor (overlay layer) | prompt helper | first setup |
-| [identity-links/](./identity-links/_manual_identity-links-setup.md) ([recruit](./identity-links/_manual_identity-links-recruit.md)) | the 20 directed fold bonds | VirtualEntities config ⚠ verify live | chat assistant / manual | register Ohne at first setup, bonds per recruitment |
+| [identity-links/](./identity-links/_manual_identity-links-setup.md) ([recruit](./identity-links/_manual_identity-links-recruit.md)) | the 20 directed fold bonds | dashboard — VirtualEntities + Identity Links (⚠ smoke-test at first setup) | manual / chat assistant verifies | register Ohne (private) at first setup, bonds per recruitment |
 | [prewarm/](./prewarm/_manual_prewarm.md) | relationship floors per recruitment — native SeverActions calls | Follower-module stores (rapport/trust/loyalty, player blurb, pair affinity/respect) ⚠ console verify | chat assistant / console | per recruitment |
 
 Design source of truth: [writeups](../writeups/_overview.md) · surface research: [docs](../docs/_overview.md)

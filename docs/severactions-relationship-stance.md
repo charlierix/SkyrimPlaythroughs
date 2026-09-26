@@ -20,7 +20,7 @@ The question parked in [attribution](../writeups/attribution.md): SeverActions' 
 | `Native_SetPairRelationship(Actor, Actor, Float, Float, String)` | SeverActionsNative.psc | directed pair store; clamps affinity ±100, respect 0–100 |
 | opinion-string rebuild | FollowerManager.psc | `RebuildAllCompanionOpinions` runs on every load and at recruit |
 
-Defaults for contrast: rapport 0, trust 25, loyalty 50, mood 50; pair affinity 0, respect 30. Prewarm floors: 70/70/70 (mood untouched) and 70/50 per pair — set in the per-recruit batch at [prewarm](<../output entries/prewarm/_manual.md>).
+Defaults for contrast: rapport 0, trust 25, loyalty 50, mood 50; pair affinity 0, respect 30. Prewarm floors: 70/70/70 (mood untouched) and 70/50 per pair — set in the per-recruit batch at [prewarm](<../output entries/prewarm/_manual_prewarm.md>).
 
 ## the overrides (full replacement texts)
 

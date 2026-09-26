@@ -48,7 +48,7 @@ All follower/player names are tokens (`{player}`, `{fold1}`–`{fold4}`) filled 
 | folder | what it is |
 | --- | --- |
 | [`writeups/`](writeups/_overview.md) | design source of truth — the lore spine and the voice set |
-| [`docs/`](docs/_overview.md) | how the design maps onto SkyrimNet surfaces (identity links, overlay placement, SeverActions stance) |
+| [`docs/`](../docs/_overview.md) | how the design maps onto SkyrimNet surfaces (identity links, overlay placement, SeverActions stance) |
 | [`output entries/`](<output entries/_manual.md>) | the play-time artifact pack + injection manual |
 | `okf/` | knowledge bundles for SkyrimNet and SeverActions — reference |
 | `sources/` | vendored source snapshots of both mods, used to verify every prompt contract — reference only, not needed to play |

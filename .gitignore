@@ -1,0 +1,5 @@
+# doesn't seem to be needed, but feels incomplete without it
+.git/
+
+# agent zero
+.a0proj/
